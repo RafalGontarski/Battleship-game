@@ -1,4 +1,4 @@
 package main.ship;
 
-public class Ship {
+public class Ship extends Ships {
 }

@@ -38,7 +38,7 @@ public class Game {
         Display display = new Display();
         System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
         display.printBoard(boardPlayer1);
-        System.out.println("          ---------------------------------");
+        System.out.println("");
         display.printBoard(boardPlayer2);
         System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
         int numberOfShipPlayer1 = player1.numberOfSquaresOfShips(shipsPlayer1);

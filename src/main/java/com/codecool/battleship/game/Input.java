@@ -94,13 +94,16 @@ public class Input {
     }
 
     public int[] shoot(int player) {
+
         int GamePlayer = player + 1;
         System.out.println("Player" + GamePlayer + " shoot");
-        System.out.println("Select row: ");
-//        char row = scanner.next().charAt(0);
-        int row = scanner.nextInt();
-        System.out.println("Select col: ");
-        int col = scanner.nextInt();
-        return new int[]{row,col};
+
+        System.out.print("Enter position: ");
+        String position = scanner.nextLine().toUpperCase();
+        String[] coordinates = position.split("", 2);
+        int row = position.charAt(0) - 65;
+        int col = Integer.parseInt(coordinates[1]) - 1;
+
+        return new int[]{row, col};
     }
 }

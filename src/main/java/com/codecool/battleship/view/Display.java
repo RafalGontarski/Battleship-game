@@ -12,14 +12,14 @@ public class Display {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m;1m";
-    public static final String ANSI_RED_BACKGROUND = "\u001B[41m;1m";
-    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m;1m";
-    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m;1m";
-    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m  ";
-    public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m;1m";
-    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m;1m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m;1m";
+    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+    public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
+    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m   ";
+    public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
+    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
     public Display() {
 
@@ -55,22 +55,22 @@ public class Display {
         System.out.println("Have a nice day!");
     }
 
-
     public void printBoard(Board ocean) {
-        char[] columns = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+//        char[] row = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         StringBuilder boardBuilder = new StringBuilder("    ");
-        for (int row = 0; row < ocean.getSizeX(); row++) {
-            boardBuilder.append(columns[row]).append("  ");
+        for (int columns = 0; columns < ocean.getSizeX(); columns++) {
+            boardBuilder.append(columns + 1).append("  ");
         }
         boardBuilder.append("\n");
-        for (int row = 0; row < ocean.getSizeY(); row++) {
-            if (row < 9) {
-                boardBuilder.append(row + 1).append("  ");
+        for (int columns = 0; columns < ocean.getSizeY(); columns++) {
+            char[] row = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+            if (columns < 9) {
+                boardBuilder.append(row[columns]).append("  ");
             } else {
-                boardBuilder.append(row + 1).append(" ");
+                boardBuilder.append(row[columns]).append("  ");
             }
             for (int column = 0; column < ocean.getSizeX(); column++) {
-                switch (ocean.getSquare(row, column).getCharacter()) {
+                switch (ocean.getSquare(columns, column).getCharacter()) {
                     case 'O':
                         boardBuilder.append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
@@ -87,12 +87,13 @@ public class Display {
 
                 }
             }
-            boardBuilder.append(" ").append(row + 1);
+
+            boardBuilder.append(" ").append(row[columns]);
             boardBuilder.append("\n");
         }
         boardBuilder.append("\t");
-        for (int row = 0; row < ocean.getSizeX(); row++) {
-            boardBuilder.append(columns[row]).append("  ");
+        for (int columns = 0; columns < ocean.getSizeX(); columns++) {
+            boardBuilder.append(columns + 1).append("  ");
 
         }
         System.out.println(boardBuilder);

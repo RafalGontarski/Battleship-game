@@ -1,6 +1,6 @@
-package main;
+package com.codecool.battleship;
 
-import main.game.Game;
+import com.codecool.battleship.view.Game;
 
 public class Battleship {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package main.game;
+package com.codecool.battleship.view;
 
 public class Game {
     public void startNewGame() {

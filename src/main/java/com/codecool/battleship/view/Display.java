@@ -1,4 +1,4 @@
-package com.codecool.battleship;
+package com.codecool.battleship.view;
 
 public class Display {
 
@@ -16,7 +16,7 @@ public class Display {
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m;1m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m;1m";
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m;1m";
-    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m;1m";
+    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m  ";
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m;1m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m;1m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m;1m";
@@ -25,7 +25,7 @@ public class Display {
 
     }
 
-    public void displayMenu() {
+    public void printMenu() {
         System.out.println("Battleship is starting...");
         System.out.println("\n" + "                                     # #  ( )\n" +
                 "                                  ___#_#___|__\n" +
@@ -41,26 +41,22 @@ public class Display {
         );
     }
 
-    public void displayMessages(String message) {
+    public void printMessages(String message) {
         System.out.println(message);
     }
 
-    public void displayMainMenuOptions() {
+    public void printMainMenuOptions() {
         System.out.println("press: \n" +
                 "\t 0 - Play \n" +
-                "\t 1 - Print game rules \n" +
-                "\t 2 - Exit game \n");
+                "\t 1 - Exit game \n");
     }
 
-    public void displayExitMessage() {
+    public void printExitMessage() {
         System.out.println("Have a nice day!");
     }
 
-    public void gameRules() {
-        System.out.println("blablablabl");
-    }
 
-    public void displayBoard(Board ocean) {
+    public void printBoard(Board ocean) {
         char[] columns = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         StringBuilder boardBuilder = new StringBuilder("    ");
         for (int row = 0; row < ocean.getSizeX(); row++) {
@@ -91,14 +87,14 @@ public class Display {
 
                 }
             }
-//            boardBuilder.append(" ").append(row + 1);
-//            boardBuilder.append("\n");
+            boardBuilder.append(" ").append(row + 1);
+            boardBuilder.append("\n");
         }
-//        boardBuilder.append("\t");
-//        for (int row = 0; row < ocean.getSize(); row++) {
-//            boardBuilder.append(columns[row]).append("  ");
+        boardBuilder.append("\t");
+        for (int row = 0; row < ocean.getSizeX(); row++) {
+            boardBuilder.append(columns[row]).append("  ");
 
-//        }
+        }
         System.out.println(boardBuilder);
     }
 

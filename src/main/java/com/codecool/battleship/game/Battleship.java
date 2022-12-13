@@ -1,7 +1,6 @@
 package com.codecool.battleship.game;
 
 import com.codecool.battleship.view.Display;
-import com.codecool.battleship.Input;
 
 public class Battleship {
 

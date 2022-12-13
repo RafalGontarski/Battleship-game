@@ -1,15 +1,14 @@
-package com.codecool.battleship;
+package com.codecool.battleship.view;
+
+import com.codecool.battleship.ship.Ship;
+import com.codecool.battleship.square.Square;
+import com.codecool.battleship.square.SquareStatus;
 
 public class Board {
 
     private int sizeX;
     private int sizeY;
     private Square[][] ocean;
-
-
-//    public Board(int size){
-//        ocean = new Square[size][size];
-//    }
 
     public Square[][] getBoard() {
         return ocean;
@@ -29,13 +28,13 @@ public class Board {
         return sizeY;
     }
 
-    public Square getSquare(char x, int y) {
+    public Square getSquare(int x, int y) {
         return ocean[x][y];
     }
 
     public Square[][] fillBoard(int x, int y) {
         ocean = new Square[sizeX][sizeY];
-        for (int row = 0; row <= x; row++) {
+        for (int row = 0; row < x; row++) {
             for (int col = 0; col < y; col++) {
                 ocean[row][col] = new Square(row, col, SquareStatus.OCEAN);
             }

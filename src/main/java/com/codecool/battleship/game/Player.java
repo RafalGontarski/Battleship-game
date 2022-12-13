@@ -1,4 +1,9 @@
-package com.codecool.battleship;
+package com.codecool.battleship.game;
+
+import com.codecool.battleship.ship.Ship;
+import com.codecool.battleship.square.Square;
+import com.codecool.battleship.square.SquareStatus;
+import com.codecool.battleship.view.Board;
 
 import java.util.List;
 
@@ -25,6 +30,7 @@ public class Player {
         }
         return sumOfAllSquares;
     }
+
     public boolean handleShot(char x, int y) {
         for(Ship ship : ships) {
             for(Square square : ship.getFields()) {

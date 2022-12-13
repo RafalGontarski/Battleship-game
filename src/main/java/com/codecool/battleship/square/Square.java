@@ -1,4 +1,6 @@
-package com.codecool.battleship;
+package com.codecool.battleship.square;
+
+import com.codecool.battleship.square.SquareStatus;
 
 public class Square {
     private int x;

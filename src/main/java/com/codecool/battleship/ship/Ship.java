@@ -1,11 +1,14 @@
-package com.codecool.battleship;
+package com.codecool.battleship.ship;
+
+import com.codecool.battleship.view.Board;
+import com.codecool.battleship.square.Square;
 
 import java.util.List;
 
 public class Ship {
 
     private List<Square> NewShip;
-    private ShipType ShipType;
+    private com.codecool.battleship.ship.ShipType ShipType;
 
     public Ship(List<Square> newShip,  ShipType shipType) {
         NewShip = newShip;

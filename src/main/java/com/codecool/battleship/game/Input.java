@@ -1,4 +1,10 @@
-package com.codecool.battleship;
+package com.codecool.battleship.game;
+
+import com.codecool.battleship.ship.Ship;
+import com.codecool.battleship.ship.ShipType;
+import com.codecool.battleship.square.Square;
+import com.codecool.battleship.square.SquareStatus;
+import com.codecool.battleship.view.Board;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -56,15 +62,16 @@ public class Input {
     private List<Object> AskCoordForShipAndTypes() {
         this.CoordinatesAndShipType = new ArrayList<>();
         System.out.println("Select row: ");
-        char row = scanner.next().charAt(0);
+        char charRow = scanner.next().charAt(0);
+//        int row = Integer.parseInt(String.valueOf(charRow)) - 97;
         scanner.nextLine();
         System.out.println("Select column: ");
-        int col = scanner.nextInt();;
+        int col = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER"
                 + "5. SUBMARINE \n");
         int shipType = scanner.nextInt();
-        CoordinatesAndShipType.add(row);
+        CoordinatesAndShipType.add(charRow);
         CoordinatesAndShipType.add(col);
         CoordinatesAndShipType.add(shipType);
         return CoordinatesAndShipType;

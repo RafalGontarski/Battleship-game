@@ -1,4 +1,8 @@
-package com.codecool.battleship;
+package com.codecool.battleship.game;
+
+import com.codecool.battleship.ship.Ship;
+import com.codecool.battleship.view.Board;
+import com.codecool.battleship.view.Display;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +36,11 @@ public class Game {
         Player player2 = new Player(shipsPlayer2, boardPlayer1);
         boolean gameOn = true;
         Display display = new Display();
-        System.out.println("<<<<<<<<Player 1 Board>>>>>>>>>>");
-        display.displayBoard(boardPlayer1);
-        System.out.println("----------------------------------");
-        System.out.println("<<<<<<<<Player 2 Board>>>>>>>>>>");
-        display.displayBoard(boardPlayer2);
+        System.out.println("          <<<<<<<<Player 1 Board>>>>>>>>>>");
+        display.printBoard(boardPlayer1);
+        System.out.println("          --------------------------------");
+        System.out.println("          <<<<<<<<Player 2 Board>>>>>>>>>>");
+        display.printBoard(boardPlayer2);
         int numberOfShipPlayer1 = player1.numberOfSquaresOfShips(shipsPlayer1);
         int numberOfShipPlayer2 = player2.numberOfSquaresOfShips(shipsPlayer2);
 
@@ -44,25 +48,25 @@ public class Game {
             int[] ShootCoordinates;
             ShootCoordinates = board1.shoot(0);
             if (player2.handleShot((char) ShootCoordinates[0], ShootCoordinates[1])) {
-                display.displayBoard(player2.getBoard());
+                display.printBoard(player2.getBoard());
                 numberOfShipPlayer2--;
             } else {
-                display.displayBoard(player2.getBoard());
+                display.printBoard(player2.getBoard());
             }
             if (numberOfShipPlayer2 == 0) {
-                display.displayBoard(player2.getBoard());
+                display.printBoard(player2.getBoard());
                 System.out.println("Player 1 wins!");
                 break;
             }
             ShootCoordinates = board1.shoot(1);
             if (player1.handleShot((char) ShootCoordinates[0], ShootCoordinates[1])) {
-                display.displayBoard(player1.getBoard());
+                display.printBoard(player1.getBoard());
                 numberOfShipPlayer1--;
             } else {
-                display.displayBoard(player1.getBoard());
+                display.printBoard(player1.getBoard());
             }
             if (numberOfShipPlayer1 == 0) {
-                display.displayBoard(player1.getBoard());
+                display.printBoard(player1.getBoard());
                 System.out.println("Player 2 wins!");
                 break;
             }

@@ -8,7 +8,7 @@ import java.util.List;
 public class Ship {
 
     private List<Square> NewShip;
-    private com.codecool.battleship.ship.ShipType ShipType;
+    private ShipType ShipType;
 
     public Ship(List<Square> newShip,  ShipType shipType) {
         NewShip = newShip;
@@ -43,7 +43,6 @@ public class Ship {
                 }
             }
         }
-//        return count == 0 ? true : false;
 
         if(count == 0){
             return true;

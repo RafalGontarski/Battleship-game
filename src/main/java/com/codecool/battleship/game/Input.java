@@ -16,7 +16,7 @@ public class Input {
     private Scanner scanner = new Scanner(System.in);
     private List<Board> boards = new ArrayList<>();
     int choice;
-    List<Object> CoordinatesAndShipType = new ArrayList<>();
+    List<Integer> CoordinatesAndShipType = new ArrayList<>();
 
     public List<Board> getBoards() {
         getBoardSize();
@@ -60,19 +60,28 @@ public class Input {
         return choice;
     }
 
-    private List<Object> AskCoordForShipAndTypes() {
+    private List<Integer> AskCoordForShipAndTypes() {
+
         this.CoordinatesAndShipType = new ArrayList<>();
-        System.out.println("Select row: ");
-        char charRow = scanner.next().charAt(0);
-//        int row = Integer.parseInt(String.valueOf(charRow)) - 97;
+//        System.out.println("Select row: ");
+//        int charRow = scanner.next().charAt(0) - 65;
+
+        System.out.print("Enter position for ship: ");
+        String position = scanner.nextLine().toUpperCase();
+        String[] coordinates = position.split("", 2);
+        int row = position.charAt(0) - 65;
+        int col = Integer.parseInt(coordinates[1]) - 1;
+        System.out.println(row);
+        System.out.println(col);
+
+//        scanner.nextLine();
+//        System.out.println("Select column: ");
+//        int col = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Select column: ");
-        int col = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER"
+        System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER \n"
                 + "5. SUBMARINE \n");
         int shipType = scanner.nextInt();
-        CoordinatesAndShipType.add(charRow);
+        CoordinatesAndShipType.add(row);
         CoordinatesAndShipType.add(col);
         CoordinatesAndShipType.add(shipType);
         return CoordinatesAndShipType;
@@ -84,9 +93,9 @@ public class Input {
         Ship ship;
         System.out.println("Player" + GamePlayer + " place ship");
         CoordinatesAndShipType = AskCoordForShipAndTypes();
-        char row = (char) CoordinatesAndShipType.get(0);
-        int col = (int) CoordinatesAndShipType.get(1);
-        int shipType = (int) CoordinatesAndShipType.get(2);
+        int row = CoordinatesAndShipType.get(0);
+        int col = CoordinatesAndShipType.get(1);
+        int shipType = CoordinatesAndShipType.get(2);
         shipPart = new Square(row, col, SquareStatus.SHIP);
         ship = new Ship(new ArrayList<>(), ShipType.values()[shipType-1]);
         boards.get(player).buildShip(shipPart,ship);
@@ -98,7 +107,7 @@ public class Input {
         int GamePlayer = player + 1;
         System.out.println("Player" + GamePlayer + " shoot");
 
-        System.out.print("Enter position: ");
+        System.out.print("Enter position of shoot: ");
         String position = scanner.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
         int row = position.charAt(0) - 65;

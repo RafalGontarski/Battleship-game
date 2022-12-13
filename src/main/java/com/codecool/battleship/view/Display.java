@@ -16,7 +16,7 @@ public class Display {
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
     public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m   ";
+    public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m  ";
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
@@ -46,7 +46,7 @@ public class Display {
     }
 
     public void printMainMenuOptions() {
-        System.out.println("press: \n" +
+        System.out.println("press: \n\n" +
                 "\t 0 - Play \n" +
                 "\t 1 - Exit game \n");
     }
@@ -56,18 +56,20 @@ public class Display {
     }
 
     public void printBoard(Board ocean) {
-//        char[] row = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+
+        char[] row = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+
         StringBuilder boardBuilder = new StringBuilder("    ");
+
         for (int columns = 0; columns < ocean.getSizeX(); columns++) {
-            boardBuilder.append(columns + 1).append("  ");
+            boardBuilder.append(row[columns]).append("  ");
         }
         boardBuilder.append("\n");
         for (int columns = 0; columns < ocean.getSizeY(); columns++) {
-            char[] row = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
             if (columns < 9) {
-                boardBuilder.append(row[columns]).append("  ");
+                boardBuilder.append(columns + 1).append("  ");
             } else {
-                boardBuilder.append(row[columns]).append("  ");
+                boardBuilder.append(columns + 1).append(" ");
             }
             for (int column = 0; column < ocean.getSizeX(); column++) {
                 switch (ocean.getSquare(columns, column).getCharacter()) {
@@ -84,16 +86,15 @@ public class Display {
                         boardBuilder.append(ANSI_WHITE_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
                     default:
-
                 }
             }
 
-            boardBuilder.append(" ").append(row[columns]);
+            boardBuilder.append(" ").append(columns + 1);
             boardBuilder.append("\n");
         }
         boardBuilder.append("\t");
         for (int columns = 0; columns < ocean.getSizeX(); columns++) {
-            boardBuilder.append(columns + 1).append("  ");
+            boardBuilder.append(row[columns]).append("  ");
 
         }
         System.out.println(boardBuilder);

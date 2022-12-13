@@ -1,6 +1,7 @@
 package com.codecool.battleship.game;
 
 import com.codecool.battleship.view.Display;
+import java.util.InputMismatchException;
 
 public class Battleship {
 
@@ -30,18 +31,29 @@ public class Battleship {
         while (!exit) {
             display.printMainMenuOptions();
             System.out.println("Enter a choice: ");
-            System.out.println();
-            choice = input.getIntegerMenuOption();
-            switch (choice) {
-                case 0:
-                    display.printMessages("You've choosed to play the game.");
-                    game.gameLogic();
-                    break;
-                case 1:
-                    display.printMessages("You've choosed to exit");
-                    exitGame();
-                    break;
+            try {
+                choice = input.getIntegerMenuOption();
+
+                    if (choice >= 0 && choice <= 1) {
+
+                        switch (choice) {
+                            case 0:
+                                display.printMessages("You've choosed to play the game.");
+                                game.gameLogic();
+                                break;
+                            case 1:
+                                display.printMessages("You've choosed to exit");
+                                exitGame();
+                                break;
+                        }
+                    } else {
+                        System.out.println("Number out of range! Try again !");
+                    }
+
+            } catch (InputMismatchException number) {
+                System.out.println("Wrong input try again!");
             }
         }
     }
 }
+

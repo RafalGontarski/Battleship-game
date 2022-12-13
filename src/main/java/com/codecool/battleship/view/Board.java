@@ -28,8 +28,12 @@ public class Board {
         return sizeY;
     }
 
-    public Square getSquare(int x, int y) {
-        return ocean[x][y];
+    /** Method checks square on the board.
+     * Parameters
+     * @param row - row number (from index 0 to (board size - 1))
+     * @param column - column number (from index 0 to (board size - 1)) */
+    public Square getSquare(int row, int column) {
+        return ocean[row][column];
     }
 
     public Square[][] fillBoard(int x, int y) {

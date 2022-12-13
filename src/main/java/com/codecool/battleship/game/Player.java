@@ -31,7 +31,7 @@ public class Player {
         return sumOfAllSquares;
     }
 
-    public boolean handleShot(char x, int y) {
+    public boolean handleShot(int x, int y) {
         for(Ship ship : ships) {
             for(Square square : ship.getFields()) {
                 if (square.getY() == y && square.getX() == x &&

@@ -70,7 +70,7 @@ public class Display {
                 boardBuilder.append(row + 1).append(" ");
             }
             for (int column = 0; column < ocean.getSizeX(); column++) {
-                switch (ocean.getSquare((char) row, column).getCharacter()) {
+                switch (ocean.getSquare(row, column).getCharacter()) {
                     case 'O':
                         boardBuilder.append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;

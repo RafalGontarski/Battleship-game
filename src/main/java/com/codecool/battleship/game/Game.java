@@ -36,18 +36,18 @@ public class Game {
         Player player2 = new Player(shipsPlayer2, boardPlayer1);
         boolean gameOn = true;
         Display display = new Display();
-        System.out.println("          <<<<<<<<Player 1 Board>>>>>>>>>>");
+        System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
         display.printBoard(boardPlayer1);
-        System.out.println("          --------------------------------");
-        System.out.println("          <<<<<<<<Player 2 Board>>>>>>>>>>");
+        System.out.println("          ---------------------------------");
         display.printBoard(boardPlayer2);
+        System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
         int numberOfShipPlayer1 = player1.numberOfSquaresOfShips(shipsPlayer1);
         int numberOfShipPlayer2 = player2.numberOfSquaresOfShips(shipsPlayer2);
 
         while (gameOn) {
-            int[] ShootCoordinates;
-            ShootCoordinates = board1.shoot(0);
-            if (player2.handleShot((char) ShootCoordinates[0], ShootCoordinates[1])) {
+            int[] shootCoordinates;
+            shootCoordinates = board1.shoot(0);
+            if (player2.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 display.printBoard(player2.getBoard());
                 numberOfShipPlayer2--;
             } else {
@@ -58,8 +58,8 @@ public class Game {
                 System.out.println("Player 1 wins!");
                 break;
             }
-            ShootCoordinates = board1.shoot(1);
-            if (player1.handleShot((char) ShootCoordinates[0], ShootCoordinates[1])) {
+            shootCoordinates = board1.shoot(1);
+            if (player1.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 display.printBoard(player1.getBoard());
                 numberOfShipPlayer1--;
             } else {

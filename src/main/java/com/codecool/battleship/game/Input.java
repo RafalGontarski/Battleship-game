@@ -19,11 +19,12 @@ public class Input {
     List<Object> CoordinatesAndShipType = new ArrayList<>();
 
     public List<Board> getBoards() {
-        generateBoardSize();
+        getBoardSize();
         return boards;
     }
 
-    public void generateBoardSize() {
+    public void getBoardSize() {
+
         int n = 0;
         boolean input = false;
 
@@ -96,7 +97,8 @@ public class Input {
         int GamePlayer = player + 1;
         System.out.println("Player" + GamePlayer + " shoot");
         System.out.println("Select row: ");
-        char row = scanner.next().charAt(0);
+//        char row = scanner.next().charAt(0);
+        int row = scanner.nextInt();
         System.out.println("Select col: ");
         int col = scanner.nextInt();
         return new int[]{row,col};

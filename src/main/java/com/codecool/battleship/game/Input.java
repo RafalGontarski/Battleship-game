@@ -61,13 +61,13 @@ public class Input {
     }
 
     private List<Integer> AskCoordForShipAndTypes() {
-
+        Scanner sc = new Scanner(System.in);
         this.CoordinatesAndShipType = new ArrayList<>();
 //        System.out.println("Select row: ");
 //        int charRow = scanner.next().charAt(0) - 65;
 
         System.out.print("Enter position for ship: ");
-        String position = scanner.nextLine().toUpperCase();
+        String position = sc.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
         int row = position.charAt(0) - 65;
         int col = Integer.parseInt(coordinates[1]) - 1;
@@ -77,10 +77,10 @@ public class Input {
 //        scanner.nextLine();
 //        System.out.println("Select column: ");
 //        int col = scanner.nextInt();
-        scanner.nextLine();
+
         System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER \n"
                 + "5. SUBMARINE \n");
-        int shipType = scanner.nextInt();
+        int shipType = sc.nextInt();
         CoordinatesAndShipType.add(row);
         CoordinatesAndShipType.add(col);
         CoordinatesAndShipType.add(shipType);

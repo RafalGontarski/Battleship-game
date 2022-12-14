@@ -66,8 +66,8 @@ public class Input {
         System.out.print("Enter position for ship: ");
         String position = sc.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
-        int row = position.charAt(0) - 65;
-        int col = Integer.parseInt(coordinates[1]) - 1;
+        int row = Integer.parseInt(coordinates[1]) - 1;
+        int col = position.charAt(0) - 65;
         System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER \n"
                 + "5. SUBMARINE \n");
         int shipType = sc.nextInt();
@@ -100,8 +100,8 @@ public class Input {
         System.out.print("Enter position of shoot: ");
         String position = scanner.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
-        int row = position.charAt(0) - 65;
-        int col = Integer.parseInt(coordinates[1]) - 1;
+        int row = Integer.parseInt(coordinates[1]) - 1;
+        int col = position.charAt(0) - 65;
 
         return new int[]{row, col};
     }

@@ -68,22 +68,32 @@ public class Display {
                         boardBuilder.append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
                     case 'H':
-                        boardBuilder.append(" x").append(" ").append(ANSI_RESET);
+                        boardBuilder.append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
-                    case 'S':
-                        boardBuilder.append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET);
-                        break;
-                    case 'E':
-                        boardBuilder.append(ANSI_CYAN_BACKGROUND).append(" ").append(ANSI_RESET);
-                        break;
+//                    case 'S':
+//                        boardBuilder.append(" M").append(" ").append(ANSI_RESET);
+//                        break;
+//                    case 'E':
+//                        boardBuilder.append(" M").append(" ").append(ANSI_RESET);
+//                        break;
                     case 'M':
-                        boardBuilder.append(ANSI_BLACK_BACKGROUND).append(" ").append(ANSI_RESET);
+                        boardBuilder.append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
                 }
             }
+            if (row == 0) {
+                boardBuilder.append(" ").append(1).append("   ").append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET).append(" - HIT \n");
+            }
 
-            boardBuilder.append(" ").append(row + 1);
-            boardBuilder.append("\n");
+            else if (row == 1) {
+                boardBuilder.append(" ").append(2).append("   ").append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET).append(" - MISS \n");
+            }
+
+            else {
+                boardBuilder.append(" ").append(row + 1);
+                boardBuilder.append("\n");
+            }
+
         }
         boardBuilder.append("\t");
         for (int columns = 0; columns < ocean.getSizeX(); columns++) {
@@ -91,54 +101,5 @@ public class Display {
 
         }
         System.out.println(boardBuilder);
-
-//        System.out.print("    ");
-//
-//        int row;
-//        for(row = 0; row < ocean.getSizeX(); ++row) {
-//            System.out.print("" + row + "  ");
-//        }
-//
-//        System.out.println();
-//
-//        for(row = 0; row < ocean.getSizeX(); ++row) {
-//            if (row < 10) {
-//                System.out.print("" + row + "   ");
-//            } else {
-//                System.out.print(row);
-//            }
-//
-//            for(int col = 0; col < ocean.getSizeY(); ++col) {
-//                switch (ocean.getSquare(row, col).getCharacter()) {
-//                    case 'E':
-//                        System.out.print(ANSI_CYAN_BACKGROUND + " " + ANSI_RESET);
-//                    case 'F':
-//                    case 'G':
-//                    case 'I':
-//                    case 'J':
-//                    case 'K':
-//                    case 'L':
-//                    case 'N':
-//                    case 'P':
-//                    case 'Q':
-//                    case 'R':
-//                    default:
-//                        break;
-//                    case 'H':
-//                        System.out.print(ANSI_RED_BACKGROUND + " " + ANSI_RESET);
-//                        break;
-//                    case 'M':
-//                        System.out.print(ANSI_BLACK_BACKGROUND + " " + ANSI_RESET);
-//                        break;
-//                    case 'O':
-//                        System.out.print(ANSI_BLUE_BACKGROUND + " " + ANSI_RESET);
-//                        break;
-//                    case 'S':
-//                        System.out.print(ANSI_YELLOW_BACKGROUND + " " + ANSI_RESET);
-//                }
-//            }
-//
-//            System.out.println();
-//        }
     }
 }

@@ -48,19 +48,15 @@ public class Display {
 
         char[] charRow = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
-        StringBuilder boardBuilder = new StringBuilder("    ");
+        StringBuilder boardBuilder = new StringBuilder("   ");
 
         for (int i = 0; i < ocean.getSizeX(); i++) {
-            boardBuilder.append(charRow[i]).append("  ");
+            boardBuilder.append(String.format("%3d", i + 1));
         }
         boardBuilder.append("\n");
 
         for (int row = 0; row < ocean.getSizeX(); row++) {
-            if (row < 9) {
-                boardBuilder.append(row + 1).append("  ");
-            } else {
-                boardBuilder.append(row + 1).append(" ");
-            }
+            boardBuilder.append(charRow[row]).append("  ");
             for (int column = 0; column < ocean.getSizeY(); column++) {
 
                 switch (ocean.getSquare(row, column).getCharacter()) {
@@ -82,14 +78,14 @@ public class Display {
                 }
             }
 
-            boardBuilder.append(" ").append(row + 1);
+            boardBuilder.append(" ").append(charRow[row]);
             boardBuilder.append("\n");
         }
-        boardBuilder.append("\t");
-        for (int columns = 0; columns < ocean.getSizeX(); columns++) {
-            boardBuilder.append(charRow[columns]).append("  ");
-
+        boardBuilder.append("   ");
+        for (int i = 0; i < ocean.getSizeX(); i++) {
+            boardBuilder.append(String.format("%3d", i + 1));
         }
+
         System.out.println(boardBuilder);
 
 //        System.out.print("    ");

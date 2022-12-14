@@ -36,12 +36,12 @@ public class Square {
                 result = 'E';
             case HIT:
                 result = 'H';
-            case MISSED:
-                result = 'M';
             case SHIP:
                 result = 'S';
             case OCEAN:
                 result = 'O';
+            case MISSED:
+                result = 'M';
         }
         return result;
     }

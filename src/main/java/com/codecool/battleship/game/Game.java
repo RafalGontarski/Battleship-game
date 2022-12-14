@@ -13,18 +13,20 @@ public class Game {
     List<Board> boards;
 
     public void gameLogic() {
+
         Input board1 = new Input();
         boards = board1.getBoards();
         Board boardPlayer1 = boards.get(0);
         Board boardPlayer2 = boards.get(1);
-        for(int i = 2; i < 2; i++) {
+
+        for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(0);
             while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
                 one = board1.createShip(0);
             }
             shipsPlayer1.add(one);
         }
-        for(int i = 2; i < 2; i++) {
+        for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(1);
             while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2) == false) {
                 one = board1.createShip(1);
@@ -34,13 +36,17 @@ public class Game {
 
         Player player1 = new Player(shipsPlayer1, boardPlayer2);
         Player player2 = new Player(shipsPlayer2, boardPlayer1);
+
         boolean gameOn = true;
+
         Display display = new Display();
+
         System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
         display.printBoard(boardPlayer1);
-        System.out.println("          ---------------------------------");
+        System.out.println(" ");
         display.printBoard(boardPlayer2);
         System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
+
         int numberOfShipPlayer1 = player1.numberOfSquaresOfShips(shipsPlayer1);
         int numberOfShipPlayer2 = player2.numberOfSquaresOfShips(shipsPlayer2);
 

@@ -30,7 +30,7 @@ public class Battleship {
 
         while (!exit) {
             display.printMainMenuOptions();
-            System.out.println("Enter a choice: ");
+            System.out.println("Enter your choice: ");
             try {
                 choice = input.getIntegerMenuOption();
 

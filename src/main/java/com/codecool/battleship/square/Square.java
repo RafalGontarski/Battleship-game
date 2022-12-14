@@ -34,15 +34,20 @@ public class Square {
         switch (squareStatus) {
             case EMPTY:
                 result = 'E';
+                break;
             case HIT:
                 result = 'H';
+                break;
             case SHIP:
                 result = 'S';
+                break;
             case OCEAN:
                 result = 'O';
+                break;
             case MISSED:
                 result = 'M';
         }
+
         return result;
     }
 }

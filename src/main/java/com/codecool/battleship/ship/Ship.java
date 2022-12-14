@@ -7,16 +7,16 @@ import java.util.List;
 
 public class Ship {
 
-    private List<Square> NewShip;
+    private List<Square> NewShip1;
     private ShipType ShipType;
 
     public Ship(List<Square> newShip,  ShipType shipType) {
-        NewShip = newShip;
+        NewShip1 = newShip;
         ShipType = shipType;
     }
 
     public List<Square> getFields() {
-        return NewShip;
+        return NewShip1;
     }
 
     public ShipType getShipType() {
@@ -24,7 +24,7 @@ public class Ship {
     }
 
     public void add(Square square) {
-        NewShip.add(square);
+        NewShip1.add(square);
     }
 
     public boolean isPlacementOk (Ship ship1, List<Ship> ships, Board board) {

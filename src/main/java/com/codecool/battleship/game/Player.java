@@ -5,6 +5,7 @@ import com.codecool.battleship.square.Square;
 import com.codecool.battleship.square.SquareStatus;
 import com.codecool.battleship.view.Board;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Player {
@@ -32,22 +33,30 @@ public class Player {
     }
 
     public boolean handleShot(int x, int y) {
-        for(Ship ship : ships) {
-            for(Square square : ship.getFields()) {
+        Iterator var3 = this.ships.iterator();
+
+        while(var3.hasNext()) {
+            Ship ship = (Ship) var3.next();
+            Iterator var5 = ship.getFields().iterator();
+
+            while(var5.hasNext()) {
+                Square square = (Square)var5.next();
                 if (square.getY() == y && square.getX() == x &&
-                    square.getSquareStatus().equals(SquareStatus.SHIP)) {
+                        square.getSquareStatus().equals(SquareStatus.SHIP)) {
                     square.setSquareStatus(SquareStatus.HIT);
-                    board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
+                    this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
+                    System.out.println("You hit a ship!");
                     return true;
                 } else if (square.getY() == y && square.getX() == x &&
                         square.getSquareStatus().equals(SquareStatus.HIT)){
                     square.setSquareStatus(SquareStatus.HIT);
-                    board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
+                    this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
                     System.out.println("Already Hit!");
                     return false;
                 }
             }
         }
+
         board.getSquare(x,y).setSquareStatus(SquareStatus.MISSED);
         System.out.println("Miss!");
         return false;

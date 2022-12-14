@@ -6,4 +6,6 @@ public enum SquareStatus {
     MISSED,
     SHIP,
     OCEAN;
+
+    SquareStatus() {}
 }

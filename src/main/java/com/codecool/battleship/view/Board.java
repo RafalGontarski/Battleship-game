@@ -8,24 +8,25 @@ public class Board {
 
     private int sizeX;
     private int sizeY;
-    private Square[][] ocean;
-
-    public Square[][] getBoard() {
-        return ocean;
-    }
+    Square[][] ocean;
 
     public Board(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         fillBoard(sizeX, sizeY);
     }
+    // Nie wiem co to jest... xD
+//    public Square[][] getBoard() {
+//        return ocean;
+//    }
+
 
     public int getSizeX() {
-        return sizeX;
+        return this.sizeX;
     }
 
     public int getSizeY() {
-        return sizeY;
+        return this.sizeY;
     }
 
     /** Method checks square on the board.
@@ -33,27 +34,26 @@ public class Board {
      * @param row - row number (from index 0 to (board size - 1))
      * @param column - column number (from index 0 to (board size - 1)) */
     public Square getSquare(int row, int column) {
-        return ocean[row][column];
+        return this.ocean[row][column];
     }
 
     public Square[][] fillBoard(int x, int y) {
-        ocean = new Square[sizeX][sizeY];
+        this.ocean = new Square[sizeX][sizeY];
         for (int row = 0; row < x; row++) {
             for (int col = 0; col < y; col++) {
                 ocean[row][col] = new Square(row, col, SquareStatus.OCEAN);
             }
         }
-        return ocean;
+        return this.ocean;
     }
 
-    public void buildShip(Square square, Ship ship) {
+    public void placeShip(Square square, Ship ship) {
+        int x;
+        int y;
         switch (ship.getShipType().uniqueLength) {
             case 1:
                 square.setSquareStatus(SquareStatus.SHIP);
                 ship.add(square);
-                int x = square.getX();
-                int y = square.getY();
-                ship.add(new Square(x, y+1, SquareStatus.SHIP));
                 break;
             case 2:
                 square.setSquareStatus(SquareStatus.SHIP);
@@ -61,8 +61,6 @@ public class Board {
                 x = square.getX();
                 y = square.getY();
                 ship.add(new Square(x, y+1, SquareStatus.SHIP));
-                ship.add(new Square(x, y+2, SquareStatus.SHIP));
-                break;
             case 3:
                 square.setSquareStatus(SquareStatus.SHIP);
                 ship.add(square);
@@ -70,8 +68,6 @@ public class Board {
                 y = square.getY();
                 ship.add(new Square(x, y+1, SquareStatus.SHIP));
                 ship.add(new Square(x, y+2, SquareStatus.SHIP));
-                ship.add(new Square(x, y+3, SquareStatus.SHIP));
-//                break;
             case 4:
                 square.setSquareStatus(SquareStatus.SHIP);
                 ship.add(square);
@@ -80,8 +76,6 @@ public class Board {
                 ship.add(new Square(x, y+1, SquareStatus.SHIP));
                 ship.add(new Square(x, y+2, SquareStatus.SHIP));
                 ship.add(new Square(x, y+3, SquareStatus.SHIP));
-                ship.add(new Square(x, y+4, SquareStatus.SHIP));
-
         }
     }
 }

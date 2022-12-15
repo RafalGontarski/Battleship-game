@@ -88,7 +88,7 @@ public class Input {
         int shipType = CoordinatesAndShipType.get(2);
         shipPart = new Square(row, col, SquareStatus.SHIP);
         ship = new Ship(new ArrayList<>(), ShipType.values()[shipType-1]);
-        boards.get(player).placeShip(shipPart,ship);
+        boards.get(player).placeShip(shipPart, ship);
         return ship;
     }
 

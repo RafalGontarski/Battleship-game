@@ -22,16 +22,16 @@ public class Game {
         for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(0);
             while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
-                System.out.println("You can't place a ship right here. Try again.");
+                System.out.println("You can't place ship here. Try another place.");
                 one = board1.createShip(0);
             }
-            shipsPlayer2.add(one);
+            shipsPlayer1.add(one);
             System.out.println("\n" + (i + 1) + " Ship created ");
         }
         for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(1);
             while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2) == false) {
-                System.out.println("You can't place a ship right here. Try again.");
+                System.out.println("You can't place ship here. Try another place.");
                 one = board1.createShip(1);
             }
             shipsPlayer2.add(one);

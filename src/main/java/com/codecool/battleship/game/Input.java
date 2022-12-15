@@ -30,9 +30,9 @@ public class Input {
 
         while (!input) {
             Scanner boardSize = new Scanner(System.in);
-            System.out.println("Enter board size. Choose between 15 and 26: ");
+            System.out.println("               Enter board size. Choose between 15 and 26: ");
             try {
-                int userInput = boardSize.nextInt();
+                int userInput = Integer.parseInt(boardSize.nextLine());
                 if (userInput >= 15 && userInput <= 26) {
                     n = userInput;
                     input = true;
@@ -63,13 +63,19 @@ public class Input {
     private List<Integer> AskCoordForShipAndTypes() {
         Scanner sc = new Scanner(System.in);
         this.CoordinatesAndShipType = new ArrayList<>();
-        System.out.print("Enter position for ship: ");
+        System.out.print("             Enter position for ship (example: a1, b2 etc.): ");
         String position = sc.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
         int row = Integer.parseInt(coordinates[1]) - 1;
         int col = position.charAt(0) - 65;
-        System.out.println("\nSelect ship: \n\n\t" + "1 - CARRIER \n\t" + "2 - CRUISER \n\t" + "3 - BATTLESHIP \n\t" + "4 - DESTROYER \n\t"
-                + "5 - SUBMARINE \n");
+        System.out.println("\n                              SELECT SHIP: \n\n" +
+                "\t                       1 - CARRIER    (2)\n" +
+                "\t                       2 - CRUISER    (3)\n" +
+                "\t                       3 - BATTLESHIP (3)\n" +
+                "\t                       4 - DESTROYER  (4)\n" +
+                "\t                       5 - SUBMARINE  (5)\n" +
+                "                             * (Ship size)\n\n" +
+                "                              PLAYER INPUT: ");
         int shipType = sc.nextInt();
         CoordinatesAndShipType.add(row);
         CoordinatesAndShipType.add(col);
@@ -81,7 +87,7 @@ public class Input {
         int GamePlayer = player + 1;
         Square shipPart;
         Ship ship;
-        System.out.println("\n\t>>>>Player" + GamePlayer + " place ship<<<< \n");
+        System.out.println("\n\t               >>>> Player" + GamePlayer + " place two ship's <<<< \n");
         CoordinatesAndShipType = AskCoordForShipAndTypes();
         int row = CoordinatesAndShipType.get(0);
         int col = CoordinatesAndShipType.get(1);
@@ -95,9 +101,9 @@ public class Input {
     public int[] shoot(int player) {
 
         int GamePlayer = player + 1;
-        System.out.println("\n\t>>>Player" + GamePlayer + " shoot<<< \n");
+        System.out.println("\n\t                    >>>Player" + GamePlayer + " shooting<<< \n");
 
-        System.out.print("Enter position of shoot: ");
+        System.out.print("            Enter position of shoot (example: a1, b2 etc.): ");
         String position = scanner.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
         int row = Integer.parseInt(coordinates[1]) - 1;

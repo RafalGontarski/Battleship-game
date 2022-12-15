@@ -32,7 +32,7 @@ public class Battleship {
 
         while (!exit) {
             display.printMainMenuOptions();
-            System.out.println("Enter your choice: ");
+            System.out.println("                             Your choice: ");
             try {
                 choice = input.getIntegerMenuOption();
 
@@ -42,11 +42,22 @@ public class Battleship {
 
                         switch (choice) {
                             case 1 -> {
-                                display.printMessages("\nYou've choosed to play the game.");
+                                display.printMessages(
+                                        "\t                                                            __ \n" +
+                                        "\t   _____ _____ _____ _____ _____    _____ _____ _____ _____|  |\n" +
+                                        "\t  |   __|_   _|  _  | __  |_   _|  |   __|  _  |     |   __|  |\n" +
+                                        "\t  |__   | | | |     |    -| | |    |  |  |     | | | |   __|__|\n" +
+                                        "\t  |_____| |_| |__|__|__|__| |_|    |_____|__|__|_|_|_|_____|__|\n" +
+                                        "                                                             ");
                                 game.gameLogic();
                             }
                             case 2 -> {
-                                display.printMessages("\nYou've choosed to exit");
+                                display.printMessages("\n" +
+                                        "                            _____   _____ _ \n" +
+                                        "                           | _ ) \\ / / __| |\n" +
+                                        "                           | _ \\\\ V /| _||_|\n" +
+                                        "                           |___/ |_| |___(_)\n" +
+                                        "                  ");
                                 exitGame();
                             }
                         }

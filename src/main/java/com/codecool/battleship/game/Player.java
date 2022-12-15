@@ -13,8 +13,6 @@ public class Player {
     private List<Ship> ships;
     private Board board;
 
-//    private int remainingShips = 0;
-
     public Player(List<Ship> ships, Board board) {
         this.ships = ships;
         this.board = board;
@@ -45,20 +43,35 @@ public class Player {
                         square.getSquareStatus().equals(SquareStatus.SHIP)) {
                     square.setSquareStatus(SquareStatus.HIT);
                     this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
-                    System.out.println("\nYou hit a ship! \n");
+                    System.out.println("\n" +
+                            "\t\t\t               _  _ ___ _____ _ \n" +
+                            "\t\t\t              | || |_ _|_   _| |\n" +
+                            "\t\t\t              | __ || |  | | |_|\n" +
+                            "\t\t\t              |_||_|___| |_| (_)\n" +
+                            "\t");
                     return true;
                 } else if (square.getY() == y && square.getX() == x &&
                         square.getSquareStatus().equals(SquareStatus.HIT)){
                     square.setSquareStatus(SquareStatus.HIT);
                     this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
-                    System.out.println("\nAlready Hit! \n");
+                    System.out.println("\n" +
+                            "            _   _    ___ ___   _   _____   __  _  _ ___ _____ _ \n" +
+                            "           /_\\ | |  | _ \\ __| /_\\ |   \\ \\ / / | || |_ _|_   _| |\n" +
+                            "          / _ \\| |__|   / _| / _ \\| |) \\ V /  | __ || |  | | |_|\n" +
+                            "         /_/ \\_\\____|_|_\\___/_/ \\_\\___/ |_|   |_||_|___| |_| (_)\n" +
+                            "\t");
                     return false;
                 }
             }
         }
 
         board.getSquare(x,y).setSquareStatus(SquareStatus.MISSED);
-        System.out.println("\nMiss! \n");
+        System.out.println("\n" +
+                "\t\t\t              __  __ ___ ___ ___ _ \n" +
+                "\t\t\t             |  \\/  |_ _/ __/ __| |\n" +
+                "\t\t\t             | |\\/| || |\\__ \\__ \\_|\n" +
+                "\t\t\t             |_|  |_|___|___/___(_)\n" +
+                "\t");
         return false;
     }
 }

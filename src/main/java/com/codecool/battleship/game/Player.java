@@ -49,8 +49,8 @@ public class Player {
                     return true;
                 } else if (square.getY() == y && square.getX() == x &&
                         square.getSquareStatus().equals(SquareStatus.HIT)){
-                    square.setSquareStatus(SquareStatus.HIT);
-                    this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
+//                    square.setSquareStatus(SquareStatus.HIT);
+//                    this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
                     System.out.println("Already Hit!");
                     return false;
                 }

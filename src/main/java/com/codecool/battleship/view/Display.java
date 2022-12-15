@@ -3,12 +3,10 @@ package com.codecool.battleship.view;
 public class Display {
 
     public static final String ANSI_RESET = "\u001B[0m";
-
     public static final String ANSI_RED_BACKGROUND = "\u001B[41m  ";
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m  ";
     public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m  ";
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[47m  ";
-    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m  ";
+
 
     public Display() {
 
@@ -36,8 +34,8 @@ public class Display {
 
     public void printMainMenuOptions() {
         System.out.println("press: \n\n" +
-                "\t 0 - Play \n" +
-                "\t 1 - Exit game \n");
+                "\t 1 - Play \n" +
+                "\t 2 - Exit game \n");
     }
 
     public void printExitMessage() {
@@ -70,12 +68,6 @@ public class Display {
                     case 'H':
                         boardBuilder.append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
-//                    case 'S':
-//                        boardBuilder.append(" M").append(" ").append(ANSI_RESET);
-//                        break;
-//                    case 'E':
-//                        boardBuilder.append(" M").append(" ").append(ANSI_RESET);
-//                        break;
                     case 'M':
                         boardBuilder.append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET);
                         break;
@@ -85,7 +77,7 @@ public class Display {
                 boardBuilder.append(" ").append(1).append("   ").append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET).append(" - HIT \n");
             }
 
-            else if (row == 1) {
+            else if (row == 2) {
                 boardBuilder.append(" ").append(2).append("   ").append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET).append(" - MISS \n");
             }
 

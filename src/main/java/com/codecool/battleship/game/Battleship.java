@@ -4,7 +4,6 @@ import com.codecool.battleship.view.Display;
 import java.util.InputMismatchException;
 
 public class Battleship {
-
     private Display display;
     private Game game = new Game();
     private Input input;

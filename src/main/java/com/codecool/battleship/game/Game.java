@@ -54,25 +54,37 @@ public class Game {
             int[] shootCoordinates;
             shootCoordinates = board1.shoot(0);
             if (player2.handleShot(shootCoordinates[0], shootCoordinates[1])) {
+                System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 display.printBoard(player2.getBoard());
                 numberOfShipPlayer2--;
             } else {
+                System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 display.printBoard(player2.getBoard());
             }
             if (numberOfShipPlayer2 == 0) {
+                System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
+                display.printBoard(player1.getBoard());
+                System.out.println(" ");
                 display.printBoard(player2.getBoard());
+                System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 System.out.println("Player 1 wins!");
                 break;
             }
             shootCoordinates = board1.shoot(1);
             if (player1.handleShot(shootCoordinates[0], shootCoordinates[1])) {
+                System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
                 numberOfShipPlayer1--;
             } else {
+                System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
             }
             if (numberOfShipPlayer1 == 0) {
+                System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
+                System.out.println(" ");
+                display.printBoard(player2.getBoard());
+                System.out.println("          <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 System.out.println("Player 2 wins!");
                 break;
             }

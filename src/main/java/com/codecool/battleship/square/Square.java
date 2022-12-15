@@ -32,9 +32,6 @@ public class Square {
     public char getCharacter() {
         char result = ' ';
         switch (squareStatus) {
-            case EMPTY:
-                result = 'E';
-                break;
             case HIT:
                 result = 'H';
                 break;

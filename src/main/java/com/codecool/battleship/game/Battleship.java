@@ -29,23 +29,26 @@ public class Battleship {
         boolean exit = false;
         input = new Input();
 
+
         while (!exit) {
             display.printMainMenuOptions();
             System.out.println("Enter your choice: ");
             try {
                 choice = input.getIntegerMenuOption();
 
-                    if (choice >= 0 && choice <= 1) {
+                    if (choice >= 1 && choice <= 2) {
+
+
 
                         switch (choice) {
-                            case 0:
+                            case 1 -> {
                                 display.printMessages("You've choosed to play the game.");
                                 game.gameLogic();
-                                break;
-                            case 1:
+                            }
+                            case 2 -> {
                                 display.printMessages("You've choosed to exit");
                                 exitGame();
-                                break;
+                            }
                         }
                     } else {
                         System.out.println("Number out of range! Try again !");

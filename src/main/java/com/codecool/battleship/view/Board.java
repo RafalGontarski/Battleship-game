@@ -15,36 +15,32 @@ public class Board {
         this.sizeY = sizeY;
         fillBoard(sizeX, sizeY);
     }
-    // Nie wiem co to jest... xD
-//    public Square[][] getBoard() {
-//        return ocean;
-//    }
-
 
     public int getSizeX() {
-        return this.sizeX;
+        return sizeX;
     }
 
     public int getSizeY() {
-        return this.sizeY;
+        return sizeY;
     }
 
     /** Method checks square on the board.
      * Parameters
      * @param row - row number (from index 0 to (board size - 1))
-     * @param column - column number (from index 0 to (board size - 1)) */
+     * @param column - column number (from index 0 to (board size - 1))
+     * */
     public Square getSquare(int row, int column) {
-        return this.ocean[row][column];
+        return ocean[row][column];
     }
 
     public Square[][] fillBoard(int x, int y) {
-        this.ocean = new Square[sizeX][sizeY];
+        ocean = new Square[sizeX][sizeY];
         for (int row = 0; row < x; row++) {
             for (int col = 0; col < y; col++) {
                 ocean[row][col] = new Square(row, col, SquareStatus.OCEAN);
             }
         }
-        return this.ocean;
+        return ocean;
     }
 
     public void placeShip(Square square, Ship ship) {

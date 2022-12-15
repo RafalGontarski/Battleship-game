@@ -33,7 +33,7 @@ public class Display {
     }
 
     public void printMainMenuOptions() {
-        System.out.println("press: \n\n" +
+        System.out.println("Main Menu: \n\n" +
                 "\t 1 - Play \n" +
                 "\t 2 - Exit game \n");
     }
@@ -74,11 +74,15 @@ public class Display {
                 }
             }
             if (row == 0) {
-                boardBuilder.append(" ").append(1).append("   ").append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET).append(" - HIT \n");
+                boardBuilder.append(" ").append(1).append("   ").append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET).append(" - HITTED SHIP \n");
             }
 
             else if (row == 2) {
                 boardBuilder.append(" ").append(2).append("   ").append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET).append(" - MISS \n");
+            }
+
+            else if (row == 4) {
+                boardBuilder.append(" ").append(2).append("   ").append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET).append(" - OCEAN \n");
             }
 
             else {

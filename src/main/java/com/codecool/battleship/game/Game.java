@@ -22,7 +22,7 @@ public class Game {
         for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(0);
             while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
-                System.out.println("\nYou can't place ship right here. Try another place.");
+                System.out.println("\n           You can't place ship right here. Try another place.");
                 one = board1.createShip(0);
             }
             shipsPlayer1.add(one);
@@ -60,10 +60,14 @@ public class Game {
             if (player2.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 display.printBoard(player2.getBoard());
+                display.printBoard(player1.getBoard());
+                System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 numberOfShipPlayer2--;
             } else {
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 display.printBoard(player2.getBoard());
+                display.printBoard(player1.getBoard());
+                System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
             }
             if (numberOfShipPlayer2 == 0) {
                 System.out.println("\n" +
@@ -78,11 +82,11 @@ public class Game {
                 display.printBoard(player2.getBoard());
                 System.out.println("                   <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 System.out.println("\n" +
-                        "                                                                     __ \n" +
-                        "     _____ __    _____ __ __ _____ _____    ___      _ _ _ _        |  |\n" +
-                        "    |  _  |  |  |  _  |  |  |   __| __  |  |_  |    | | | |_|___ ___|  |\n" +
-                        "    |   __|  |__|     |_   _|   __|    -|   _| |_   | | | | |   |_ -|__|\n" +
-                        "    |__|  |_____|__|__| |_| |_____|__|__|  |_____|  |_____|_|_|_|___|__|\n" +
+                        "                                                                      __ \n" +
+                        "      _____ __    _____ __ __ _____ _____    ___      _ _ _ _        |  |\n" +
+                        "     |  _  |  |  |  _  |  |  |   __| __  |  |_  |    | | | |_|___ ___|  |\n" +
+                        "     |   __|  |__|     |_   _|   __|    -|   _| |_   | | | | |   |_ -|__|\n" +
+                        "     |__|  |_____|__|__| |_| |_____|__|__|  |_____|  |_____|_|_|_|___|__|\n" +
                         "                                                                    ");
                 break;
             }
@@ -90,10 +94,14 @@ public class Game {
             if (player1.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
+                display.printBoard(player2.getBoard());
+                System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 numberOfShipPlayer1--;
             } else {
                 System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
+                display.printBoard(player2.getBoard());
+                System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
             }
             if (numberOfShipPlayer1 == 0) {
                 System.out.println("\n" +
@@ -108,11 +116,11 @@ public class Game {
                 display.printBoard(player2.getBoard());
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 System.out.println("\n" +
-                        "                                                                   __ \n" +
-                        "     _____ __    _____ __ __ _____ _____    ___    _ _ _ _        |  |\n" +
-                        "    |  _  |  |  |  _  |  |  |   __| __  |  |_  |  | | | |_|___ ___|  |\n" +
-                        "    |   __|  |__|     |_   _|   __|    -|  |  _|  | | | | |   |_ -|__|\n" +
-                        "    |__|  |_____|__|__| |_| |_____|__|__|  |___|  |_____|_|_|_|___|__|\n" +
+                        "                                                                    __ \n" +
+                        "      _____ __    _____ __ __ _____ _____    ___    _ _ _ _        |  |\n" +
+                        "     |  _  |  |  |  _  |  |  |   __| __  |  |_  |  | | | |_|___ ___|  |\n" +
+                        "     |   __|  |__|     |_   _|   __|    -|  |  _|  | | | | |   |_ -|__|\n" +
+                        "     |__|  |_____|__|__| |_| |_____|__|__|  |___|  |_____|_|_|_|___|__|\n" +
                         "                                                                  ");
                 break;
             }

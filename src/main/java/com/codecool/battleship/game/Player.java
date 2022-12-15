@@ -44,10 +44,10 @@ public class Player {
                     square.setSquareStatus(SquareStatus.HIT);
                     this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
                     System.out.println("\n" +
-                            "\t\t\t               _  _ ___ _____ _ \n" +
-                            "\t\t\t              | || |_ _|_   _| |\n" +
-                            "\t\t\t              | __ || |  | | |_|\n" +
-                            "\t\t\t              |_||_|___| |_| (_)\n" +
+                            "\t\t\t                _  _ ___ _____ _ \n" +
+                            "\t\t\t               | || |_ _|_   _| |\n" +
+                            "\t\t\t               | __ || |  | | |_|\n" +
+                            "\t\t\t               |_||_|___| |_| (_)\n" +
                             "\t");
                     return true;
                 } else if (square.getY() == y && square.getX() == x &&
@@ -67,10 +67,10 @@ public class Player {
 
         board.getSquare(x,y).setSquareStatus(SquareStatus.MISSED);
         System.out.println("\n" +
-                "\t\t\t              __  __ ___ ___ ___ _ \n" +
-                "\t\t\t             |  \\/  |_ _/ __/ __| |\n" +
-                "\t\t\t             | |\\/| || |\\__ \\__ \\_|\n" +
-                "\t\t\t             |_|  |_|___|___/___(_)\n" +
+                "\t\t\t               __  __ ___ ___ ___ _ \n" +
+                "\t\t\t              |  \\/  |_ _/ __/ __| |\n" +
+                "\t\t\t              | |\\/| || |\\__ \\__ \\_|\n" +
+                "\t\t\t              |_|  |_|___|___/___(_)\n" +
                 "\t");
         return false;
     }

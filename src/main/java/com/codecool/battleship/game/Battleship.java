@@ -37,9 +37,6 @@ public class Battleship {
                 choice = input.getIntegerMenuOption();
 
                     if (choice >= 1 && choice <= 2) {
-
-
-
                         switch (choice) {
                             case 1 -> {
                                 display.printMessages(
@@ -62,11 +59,13 @@ public class Battleship {
                             }
                         }
                     } else {
-                        System.out.println("Number out of range! Try again !");
+                        System.out.println("                    Number out of range! Try again !");
                     }
 
             } catch (InputMismatchException number) {
-                System.out.println("Wrong input try again!");
+                System.out.println("                    Wrong input try again!");
+                display.printMainMenuOptions();
+                break;
             }
         }
     }

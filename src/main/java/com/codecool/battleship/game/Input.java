@@ -30,18 +30,18 @@ public class Input {
 
         while (!input) {
             Scanner boardSize = new Scanner(System.in);
-            System.out.println("               Enter board size. Choose between 15 and 26: ");
+            System.out.println("               Enter board size. Choose between 10 and 26: ");
             try {
                 int userInput = Integer.parseInt(boardSize.nextLine());
-                if (userInput >= 15 && userInput <= 26) {
+                if (userInput >= 10 && userInput <= 26) {
                     n = userInput;
                     input = true;
 
                 } else {
-                    System.out.println("Number out of range! Try again !");
+                    System.out.println("                    Number out of range! Try again !");
                 }
             } catch (InputMismatchException number) {
-                System.out.println("Wrong input try again!");
+                System.out.println("                    Wrong input try again!");
             }
         }
         Board board1 = new Board(n, n);
@@ -101,9 +101,9 @@ public class Input {
     public int[] shoot(int player) {
 
         int GamePlayer = player + 1;
-        System.out.println("\n\t                    >>>Player" + GamePlayer + " shooting<<< \n");
+        System.out.println("\n\t                      >>>Player" + GamePlayer + " shooting<<< \n");
 
-        System.out.print("            Enter position of shoot (example: a1, b2 etc.): ");
+        System.out.print("             Enter position of shoot (example: a1, b2 etc.): ");
         String position = scanner.nextLine().toUpperCase();
         String[] coordinates = position.split("", 2);
         int row = Integer.parseInt(coordinates[1]) - 1;

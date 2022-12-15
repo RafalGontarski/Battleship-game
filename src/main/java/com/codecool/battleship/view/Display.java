@@ -51,7 +51,7 @@ public class Display {
 
         char[] charRow = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
-        StringBuilder boardBuilder = new StringBuilder("               ");
+        StringBuilder boardBuilder = new StringBuilder("                      ");
 
         for (int i = 0; i < ocean.getSizeX(); i++) {
             boardBuilder.append(charRow[i]).append("  ");
@@ -60,9 +60,9 @@ public class Display {
 
         for (int row = 0; row < ocean.getSizeX(); row++) {
             if (row < 9) {
-                boardBuilder.append("            ").append(row + 1).append(" ");
+                boardBuilder.append("                   ").append(row + 1).append(" ");
             } else {
-                boardBuilder.append("           ").append(row + 1).append(" ");
+                boardBuilder.append("                  ").append(row + 1).append(" ");
             }
             for (int column = 0; column < ocean.getSizeY(); column++) {
 
@@ -84,12 +84,12 @@ public class Display {
                         .append(" - OCEAN \n");
             }
             else if (row == 2) {
-                boardBuilder.append(" ").append(2).append("   ").append(ANSI_YELLOW_BACKGROUND).append(" ")
+                boardBuilder.append(" ").append(3).append("   ").append(ANSI_YELLOW_BACKGROUND).append(" ")
                         .append(ANSI_RESET)
                         .append(" - MISS \n");
             }
             else if (row == 4) {
-                boardBuilder.append(" ").append(2).append("   ").append(ANSI_RED_BACKGROUND).append(" ")
+                boardBuilder.append(" ").append(5).append("   ").append(ANSI_RED_BACKGROUND).append(" ")
                         .append(ANSI_RESET)
                         .append(" - HIT \n");
             } else {
@@ -97,7 +97,7 @@ public class Display {
                 boardBuilder.append("\n");
             }
         }
-        boardBuilder.append("\t           ");
+        boardBuilder.append("\t                  ");
         for (int columns = 0; columns < ocean.getSizeX(); columns++) {
             boardBuilder.append(charRow[columns]).append("  ");
         }

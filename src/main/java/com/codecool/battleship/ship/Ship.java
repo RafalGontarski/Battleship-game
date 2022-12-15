@@ -28,6 +28,7 @@ public class Ship {
     }
 
     public boolean isPlacementOk (Ship ship1, List<Ship> ships, Board board) {
+
         int count = 0;
         for (int i = 0; i < ship1.getFields().size(); i++) {
             if (ship1.getFields().get(i).getY() > board.getSizeY() ||

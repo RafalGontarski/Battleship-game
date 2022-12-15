@@ -22,16 +22,20 @@ public class Game {
         for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(0);
             while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
+                System.out.println("You can't place a ship right here. Try again.");
                 one = board1.createShip(0);
             }
-            shipsPlayer1.add(one);
+            shipsPlayer2.add(one);
+            System.out.println("\n" + (i + 1) + " Ship created ");
         }
         for(int i = 0; i < 2; i++) {
             Ship one = board1.createShip(1);
             while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2) == false) {
+                System.out.println("You can't place a ship right here. Try again.");
                 one = board1.createShip(1);
             }
             shipsPlayer2.add(one);
+            System.out.println("\n" + (i + 1) + " Ship created ");
         }
 
         Player player1 = new Player(shipsPlayer1, boardPlayer2);
@@ -41,7 +45,7 @@ public class Game {
 
         Display display = new Display();
 
-        System.out.println("          <<<<<<<<<Player 1 Board>>>>>>>>>>");
+        System.out.println("\n          <<<<<<<<<Player 1 Board>>>>>>>>>>");
         display.printBoard(boardPlayer1);
         System.out.println(" ");
         display.printBoard(boardPlayer2);

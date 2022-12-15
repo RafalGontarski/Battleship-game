@@ -41,11 +41,11 @@ public class Battleship {
 
                         switch (choice) {
                             case 1 -> {
-                                display.printMessages("You've choosed to play the game.");
+                                display.printMessages("\nYou've choosed to play the game.");
                                 game.gameLogic();
                             }
                             case 2 -> {
-                                display.printMessages("You've choosed to exit");
+                                display.printMessages("\nYou've choosed to exit");
                                 exitGame();
                             }
                         }

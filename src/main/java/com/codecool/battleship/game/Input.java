@@ -68,8 +68,8 @@ public class Input {
         String[] coordinates = position.split("", 2);
         int row = Integer.parseInt(coordinates[1]) - 1;
         int col = position.charAt(0) - 65;
-        System.out.println("Select ship: \n" + "1. CARRIER \n" + "2. CRUISER \n" + "3. BATTLESHIP \n" + "4. DESTROYER \n"
-                + "5. SUBMARINE \n");
+        System.out.println("\nSelect ship: \n\n\t" + "1 - CARRIER \n\t" + "2 - CRUISER \n\t" + "3 - BATTLESHIP \n\t" + "4 - DESTROYER \n\t"
+                + "5 - SUBMARINE \n");
         int shipType = sc.nextInt();
         CoordinatesAndShipType.add(row);
         CoordinatesAndShipType.add(col);
@@ -81,7 +81,7 @@ public class Input {
         int GamePlayer = player + 1;
         Square shipPart;
         Ship ship;
-        System.out.println("Player" + GamePlayer + " place ship");
+        System.out.println("\n\t>>>>Player" + GamePlayer + " place ship<<<< \n");
         CoordinatesAndShipType = AskCoordForShipAndTypes();
         int row = CoordinatesAndShipType.get(0);
         int col = CoordinatesAndShipType.get(1);
@@ -95,7 +95,7 @@ public class Input {
     public int[] shoot(int player) {
 
         int GamePlayer = player + 1;
-        System.out.println("Player" + GamePlayer + " shoot");
+        System.out.println("\n\t>>>Player" + GamePlayer + " shoot<<< \n");
 
         System.out.print("Enter position of shoot: ");
         String position = scanner.nextLine().toUpperCase();

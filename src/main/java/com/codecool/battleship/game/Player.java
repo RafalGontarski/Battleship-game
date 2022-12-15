@@ -45,20 +45,20 @@ public class Player {
                         square.getSquareStatus().equals(SquareStatus.SHIP)) {
                     square.setSquareStatus(SquareStatus.HIT);
                     this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
-                    System.out.println("You hit a ship!");
+                    System.out.println("You hit a ship! \n");
                     return true;
                 } else if (square.getY() == y && square.getX() == x &&
                         square.getSquareStatus().equals(SquareStatus.HIT)){
                     square.setSquareStatus(SquareStatus.HIT);
                     this.board.getSquare(x,y).setSquareStatus(SquareStatus.HIT);
-                    System.out.println("Already Hit!");
+                    System.out.println("Already Hit! \n");
                     return false;
                 }
             }
         }
 
         board.getSquare(x,y).setSquareStatus(SquareStatus.MISSED);
-        System.out.println("Miss!");
+        System.out.println("Miss! \n");
         return false;
     }
 }

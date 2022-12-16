@@ -1,10 +1,10 @@
-package com.codecool.battleship.game;
+package com.codecool.battleship.view;
 
 import com.codecool.battleship.ship.Ship;
 import com.codecool.battleship.ship.ShipType;
-import com.codecool.battleship.square.Square;
-import com.codecool.battleship.square.SquareStatus;
-import com.codecool.battleship.view.Board;
+import com.codecool.battleship.board.square.Square;
+import com.codecool.battleship.board.square.SquareStatus;
+import com.codecool.battleship.board.Board;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

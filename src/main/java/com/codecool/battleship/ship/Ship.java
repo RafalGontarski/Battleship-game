@@ -1,7 +1,7 @@
 package com.codecool.battleship.ship;
 
-import com.codecool.battleship.view.Board;
-import com.codecool.battleship.square.Square;
+import com.codecool.battleship.board.Board;
+import com.codecool.battleship.board.square.Square;
 
 import java.util.List;
 

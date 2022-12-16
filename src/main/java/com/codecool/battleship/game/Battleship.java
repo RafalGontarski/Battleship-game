@@ -1,15 +1,20 @@
 package com.codecool.battleship.game;
 
 import com.codecool.battleship.view.Display;
+import com.codecool.battleship.view.Input;
+
 import java.util.InputMismatchException;
 
 public class Battleship {
-    private Display display;
-    private Game game = new Game();
-    private Input input;
+
+
+    private final Display display;
+    private final Input input;
+    private final Game game = new Game();
 
     public Battleship() {
         display = new Display();
+        input = new Input();
     }
 
     public void start() {
@@ -23,17 +28,13 @@ public class Battleship {
     }
 
     public void mainMenu() {
-        int choice;
         boolean exit = false;
-        input = new Input();
-
 
         while (!exit) {
             display.printMainMenuOptions();
             System.out.println("                             Your choice: ");
             try {
-                choice = input.getIntegerMenuOption();
-
+                int choice = input.getIntegerMenuOption();
                     if (choice >= 1 && choice <= 2) {
                         switch (choice) {
                             case 1 -> {
@@ -59,11 +60,10 @@ public class Battleship {
                     } else {
                         System.out.println("                    Number out of range! Try again !");
                     }
-
             } catch (InputMismatchException number) {
                 System.out.println("                    Wrong input try again!");
-                display.printMainMenuOptions();
-                break;
+//                display.printMainMenuOptions();
+//                break;
             }
         }
     }

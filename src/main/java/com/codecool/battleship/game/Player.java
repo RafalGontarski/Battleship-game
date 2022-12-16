@@ -1,9 +1,9 @@
 package com.codecool.battleship.game;
 
 import com.codecool.battleship.ship.Ship;
-import com.codecool.battleship.square.Square;
-import com.codecool.battleship.square.SquareStatus;
-import com.codecool.battleship.view.Board;
+import com.codecool.battleship.board.square.Square;
+import com.codecool.battleship.board.square.SquareStatus;
+import com.codecool.battleship.board.Board;
 
 import java.util.Iterator;
 import java.util.List;

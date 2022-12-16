@@ -13,6 +13,8 @@ public class Player {
     private List<Ship> ships;
     private Board board;
 
+//    private int remainingShips = 0;
+
     public Player(List<Ship> ships, Board board) {
         this.ships = ships;
         this.board = board;

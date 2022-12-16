@@ -1,38 +1,39 @@
 package com.codecool.battleship.game;
 
 import com.codecool.battleship.ship.Ship;
-import com.codecool.battleship.view.Board;
+import com.codecool.battleship.board.Board;
 import com.codecool.battleship.view.Display;
+import com.codecool.battleship.view.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private List<Ship> shipsPlayer1 = new ArrayList<>();
-    private List<Ship> shipsPlayer2 = new ArrayList<>();
+    private final List<Ship> shipsPlayer1 = new ArrayList<>();
+    private final List<Ship> shipsPlayer2 = new ArrayList<>();
     List<Board> boards;
 
     public void gameLogic() {
 
-        Input board1 = new Input();
-        boards = board1.getBoards();
+        Input input = new Input();
+        boards = input.getBoards();
         Board boardPlayer1 = boards.get(0);
         Board boardPlayer2 = boards.get(1);
 
         for(int i = 0; i < 2; i++) {
-            Ship one = board1.createShip(0);
+            Ship one = input.createShip(0);
             while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
                 System.out.println("\n           You can't place ship right here. Try another place.");
-                one = board1.createShip(0);
+                one = input.createShip(0);
             }
             shipsPlayer1.add(one);
             System.out.println("\n                        " + (i + 1) + " Ship has been created.");
         }
         for(int i = 0; i < 2; i++) {
-            Ship one = board1.createShip(1);
+            Ship one = input.createShip(1);
             while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2) == false) {
                 System.out.println("\nYou can't place ship right here. Try another place.");
-                one = board1.createShip(1);
+                one = input.createShip(1);
             }
             shipsPlayer2.add(one);
             System.out.println("\n                         " + (i + 1) + " Ship has been created.");
@@ -56,7 +57,7 @@ public class Game {
 
         while (gameOn) {
             int[] shootCoordinates;
-            shootCoordinates = board1.shoot(0);
+            shootCoordinates = input.shoot(0);
             if (player2.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
                 display.printBoard(player2.getBoard());
@@ -90,7 +91,7 @@ public class Game {
                         "                                                                    ");
                 break;
             }
-            shootCoordinates = board1.shoot(1);
+            shootCoordinates = input.shoot(1);
             if (player1.handleShot(shootCoordinates[0], shootCoordinates[1])) {
                 System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());

@@ -1,19 +1,13 @@
-package com.codecool.battleship.square;
-
-import com.codecool.battleship.square.SquareStatus;
+package com.codecool.battleship.board.square;
 
 public class Square {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
     private SquareStatus squareStatus;
 
     public Square(int x, int y, SquareStatus squareStatus) {
         this.x = x;
         this.y = y;
-        this.squareStatus = squareStatus;
-    }
-
-    public void setSquareStatus(SquareStatus squareStatus) {
         this.squareStatus = squareStatus;
     }
 
@@ -23,6 +17,10 @@ public class Square {
 
     public int getY() {
         return y;
+    }
+
+    public void setSquareStatus(SquareStatus squareStatus) {
+        this.squareStatus = squareStatus;
     }
 
     public SquareStatus getSquareStatus() {
@@ -44,7 +42,6 @@ public class Square {
             case MISSED:
                 result = 'M';
         }
-
         return result;
     }
 }

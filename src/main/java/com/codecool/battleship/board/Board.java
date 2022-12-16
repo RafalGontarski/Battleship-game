@@ -1,8 +1,8 @@
-package com.codecool.battleship.view;
+package com.codecool.battleship.board;
 
 import com.codecool.battleship.ship.Ship;
-import com.codecool.battleship.square.Square;
-import com.codecool.battleship.square.SquareStatus;
+import com.codecool.battleship.board.square.Square;
+import com.codecool.battleship.board.square.SquareStatus;
 
 public class Board {
 

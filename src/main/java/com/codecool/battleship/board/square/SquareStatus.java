@@ -1,4 +1,4 @@
-package com.codecool.battleship.square;
+package com.codecool.battleship.board.square;
 
 public enum SquareStatus {
     HIT,

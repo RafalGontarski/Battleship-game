@@ -1,4 +1,4 @@
-package com.codecool.battleship.view;
+package com.codecool.battleship.board;
 
 public class BoardFactory {
 

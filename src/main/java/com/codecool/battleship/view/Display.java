@@ -1,5 +1,7 @@
 package com.codecool.battleship.view;
 
+import com.codecool.battleship.board.Board;
+
 public class Display {
 
     public static final String ANSI_RESET = "\u001B[0m";

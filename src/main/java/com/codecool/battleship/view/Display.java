@@ -25,10 +25,7 @@ public class Display {
                                  =====| |.---------------------------. | |====
                    <--------------------'   .  .  .  .  .  .  .  .   '--------------/
                      \\                                                             /
-                      \\_______________________________________________WWS_________/
-                  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\s
+                      \\_______________________________________________WWS_________/\s
                 """
         );
     }

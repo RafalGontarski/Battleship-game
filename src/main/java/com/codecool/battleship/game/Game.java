@@ -22,7 +22,7 @@ public class Game {
 
         for(int i = 0; i < 2; i++) {
             Ship one = input.createShip(0);
-            while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1) == false) {
+            while(one.isPlacementOk(one, shipsPlayer1, boardPlayer1)) {
                 System.out.println("\n           You can't place ship right here. Try another place.");
                 one = input.createShip(0);
             }
@@ -31,7 +31,7 @@ public class Game {
         }
         for(int i = 0; i < 2; i++) {
             Ship one = input.createShip(1);
-            while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2) == false) {
+            while(one.isPlacementOk(one, shipsPlayer2, boardPlayer2)) {
                 System.out.println("\nYou can't place ship right here. Try another place.");
                 one = input.createShip(1);
             }
@@ -42,7 +42,7 @@ public class Game {
         Player player1 = new Player(shipsPlayer1, boardPlayer2);
         Player player2 = new Player(shipsPlayer2, boardPlayer1);
 
-        boolean gameOn = true;
+//        boolean gameOn = true;
 
         Display display = new Display();
 
@@ -55,7 +55,7 @@ public class Game {
         int numberOfShipPlayer1 = player1.numberOfSquaresOfShips(shipsPlayer1);
         int numberOfShipPlayer2 = player2.numberOfSquaresOfShips(shipsPlayer2);
 
-        while (gameOn) {
+        while (true) {
             int[] shootCoordinates;
             shootCoordinates = input.shoot(0);
             if (player2.handleShot(shootCoordinates[0], shootCoordinates[1])) {
@@ -71,24 +71,28 @@ public class Game {
                 System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
             }
             if (numberOfShipPlayer2 == 0) {
-                System.out.println("\n" +
-                        "           ___ ___ _  _   _   _      ___ ___ ___ _   _ _  _____ \n" +
-                        "          | __|_ _| \\| | /_\\ | |    | _ \\ __/ __| | | | ||_   _|\n" +
-                        "          | _| | || .` |/ _ \\| |__  |   / _|\\__ \\ |_| | |__| |  \n" +
-                        "          |_| |___|_|\\_/_/ \\_\\____| |_|_\\___|___/\\___/|____|_|  \n" +
-                        "                                                       ");
+                System.out.println("""
+
+                                   ___ ___ _  _   _   _      ___ ___ ___ _   _ _  _____\s
+                                  | __|_ _| \\| | /_\\ | |    | _ \\ __/ __| | | | ||_   _|
+                                  | _| | || .` |/ _ \\| |__  |   / _|\\__ \\ |_| | |__| | \s
+                                  |_| |___|_|\\_/_/ \\_\\____| |_|_\\___|___/\\___/|____|_| \s
+                                                                               \
+                        """);
                 System.out.println("                   <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
                 System.out.println(" ");
                 display.printBoard(player2.getBoard());
                 System.out.println("                   <<<<<<<<<Player 2 Board>>>>>>>>>>");
-                System.out.println("\n" +
-                        "                                                                      __ \n" +
-                        "      _____ __    _____ __ __ _____ _____    ___      _ _ _ _        |  |\n" +
-                        "     |  _  |  |  |  _  |  |  |   __| __  |  |_  |    | | | |_|___ ___|  |\n" +
-                        "     |   __|  |__|     |_   _|   __|    -|   _| |_   | | | | |   |_ -|__|\n" +
-                        "     |__|  |_____|__|__| |_| |_____|__|__|  |_____|  |_____|_|_|_|___|__|\n" +
-                        "                                                                    ");
+                System.out.println("""
+
+                                                                                              __\s
+                              _____ __    _____ __ __ _____ _____    ___      _ _ _ _        |  |
+                             |  _  |  |  |  _  |  |  |   __| __  |  |_  |    | | | |_|___ ___|  |
+                             |   __|  |__|     |_   _|   __|    -|   _| |_   | | | | |   |_ -|__|
+                             |__|  |_____|__|__| |_| |_____|__|__|  |_____|  |_____|_|_|_|___|__|
+                                                                                            \
+                        """);
                 break;
             }
             shootCoordinates = input.shoot(1);
@@ -105,24 +109,28 @@ public class Game {
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
             }
             if (numberOfShipPlayer1 == 0) {
-                System.out.println("\n" +
-                        "           ___ ___ _  _   _   _      ___ ___ ___ _   _ _  _____ \n" +
-                        "          | __|_ _| \\| | /_\\ | |    | _ \\ __/ __| | | | ||_   _|\n" +
-                        "          | _| | || .` |/ _ \\| |__  |   / _|\\__ \\ |_| | |__| |  \n" +
-                        "          |_| |___|_|\\_/_/ \\_\\____| |_|_\\___|___/\\___/|____|_|  \n" +
-                        "                                                          ");
+                System.out.println("""
+
+                                   ___ ___ _  _   _   _      ___ ___ ___ _   _ _  _____\s
+                                  | __|_ _| \\| | /_\\ | |    | _ \\ __/ __| | | | ||_   _|
+                                  | _| | || .` |/ _ \\| |__  |   / _|\\__ \\ |_| | |__| | \s
+                                  |_| |___|_|\\_/_/ \\_\\____| |_|_\\___|___/\\___/|____|_| \s
+                                                                                  \
+                        """);
                 System.out.println("                    <<<<<<<<<Player 1 Board>>>>>>>>>>");
                 display.printBoard(player1.getBoard());
                 System.out.println(" ");
                 display.printBoard(player2.getBoard());
                 System.out.println("                    <<<<<<<<<Player 2 Board>>>>>>>>>>");
-                System.out.println("\n" +
-                        "                                                                    __ \n" +
-                        "      _____ __    _____ __ __ _____ _____    ___    _ _ _ _        |  |\n" +
-                        "     |  _  |  |  |  _  |  |  |   __| __  |  |_  |  | | | |_|___ ___|  |\n" +
-                        "     |   __|  |__|     |_   _|   __|    -|  |  _|  | | | | |   |_ -|__|\n" +
-                        "     |__|  |_____|__|__| |_| |_____|__|__|  |___|  |_____|_|_|_|___|__|\n" +
-                        "                                                                  ");
+                System.out.println("""
+
+                                                                                            __\s
+                              _____ __    _____ __ __ _____ _____    ___    _ _ _ _        |  |
+                             |  _  |  |  |  _  |  |  |   __| __  |  |_  |  | | | |_|___ ___|  |
+                             |   __|  |__|     |_   _|   __|    -|  |  _|  | | | | |   |_ -|__|
+                             |__|  |_____|__|__| |_| |_____|__|__|  |___|  |_____|_|_|_|___|__|
+                                                                                          \
+                        """);
                 break;
             }
         }

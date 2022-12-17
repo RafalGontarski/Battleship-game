@@ -19,29 +19,20 @@ public class Square {
         return y;
     }
 
-    public void setSquareStatus(SquareStatus squareStatus) {
-        this.squareStatus = squareStatus;
-    }
-
     public SquareStatus getSquareStatus() {
         return squareStatus;
     }
 
+    public void setSquareStatus(SquareStatus squareStatus) {
+        this.squareStatus = squareStatus;
+    }
+
     public char getCharacter() {
-        char result = ' ';
-        switch (squareStatus) {
-            case HIT:
-                result = 'H';
-                break;
-            case SHIP:
-                result = 'S';
-                break;
-            case OCEAN:
-                result = 'O';
-                break;
-            case MISSED:
-                result = 'M';
-        }
-        return result;
+        return switch (squareStatus) {
+            case HIT -> 'H';
+            case SHIP -> 'S';
+            case OCEAN -> 'O';
+            case MISSED -> 'M';
+        };
     }
 }

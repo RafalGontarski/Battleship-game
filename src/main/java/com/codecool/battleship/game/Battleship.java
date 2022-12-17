@@ -6,8 +6,6 @@ import com.codecool.battleship.view.Input;
 import java.util.InputMismatchException;
 
 public class Battleship {
-
-
     private final Display display;
     private final Input input;
     private final Game game = new Game();
@@ -17,8 +15,14 @@ public class Battleship {
         input = new Input();
     }
 
+    public static void main(String[] args) {
+        Battleship battleship = new Battleship();
+        battleship.start();
+    }
+
     public void start() {
         display.printMenu();
+        mainMenu();
         mainMenu();
     }
 
@@ -28,32 +32,35 @@ public class Battleship {
     }
 
     public void mainMenu() {
-        boolean exit = false;
+        boolean input = false;
 
-        while (!exit) {
+        while (!input) {
             display.printMainMenuOptions();
             System.out.println("                             Your choice: ");
             try {
-                int choice = input.getIntegerMenuOption();
+                int choice = this.input.getIntegerMenuOption();
                     if (choice >= 1 && choice <= 2) {
+                        input = true;
                         switch (choice) {
                             case 1 -> {
                                 display.printMessages(
-                                        "\t                                                            __ \n" +
-                                        "\t   _____ _____ _____ _____ _____    _____ _____ _____ _____|  |\n" +
-                                        "\t  |   __|_   _|  _  | __  |_   _|  |   __|  _  |     |   __|  |\n" +
-                                        "\t  |__   | | | |     |    -| | |    |  |  |     | | | |   __|__|\n" +
-                                        "\t  |_____| |_| |__|__|__|__| |_|    |_____|__|__|_|_|_|_____|__|\n" +
-                                        "                                                             ");
+                                        """
+                                                \t                                                            __\s
+                                                \t   _____ _____ _____ _____ _____    _____ _____ _____ _____|  |
+                                                \t  |   __|_   _|  _  | __  |_   _|  |   __|  _  |     |   __|  |
+                                                \t  |__   | | | |     |    -| | |    |  |  |     | | | |   __|__|
+                                                \t  |_____| |_| |__|__|__|__| |_|    |_____|__|__|_|_|_|_____|__|
+                                                                                                            \s""");
                                 game.gameLogic();
                             }
                             case 2 -> {
-                                display.printMessages("\n" +
-                                        "                            _____   _____ _ \n" +
-                                        "                           | _ ) \\ / / __| |\n" +
-                                        "                           | _ \\\\ V /| _||_|\n" +
-                                        "                           |___/ |_| |___(_)\n" +
-                                        "                  ");
+                                display.printMessages(
+                                        """
+                                                                            _____   _____ _\s
+                                                                           | _ ) \\ / / __| |
+                                                                           | _ \\\\ V /| _||_|
+                                                                           |___/ |_| |___(_)
+                                                """);
                                 exitGame();
                             }
                         }
@@ -62,8 +69,6 @@ public class Battleship {
                     }
             } catch (InputMismatchException number) {
                 System.out.println("                    Wrong input try again!");
-//                display.printMainMenuOptions();
-//                break;
             }
         }
     }

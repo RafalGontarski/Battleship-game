@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Ship {
 
-    private List<Square> NewShip1;
-    private ShipType ShipType;
+    private final List<Square> NewShip1;
+    private final ShipType ShipType;
 
     public Ship(List<Square> newShip,  ShipType shipType) {
         NewShip1 = newShip;
@@ -35,19 +35,16 @@ public class Ship {
                 ship1.getFields().get(i).getX() > board.getSizeX()) {
                 count++;
             }
-            for (int j = 0; j < ships.size(); j++) {
-                for (int k = 0; k < ships.get(j).getFields().size(); k++){
-                    if (ship1.getFields().get(i).getX() == ships.get(j).getFields().get(k).getX() &&
-                        ship1.getFields().get(i).getY() == ships.get(j).getFields().get(k).getY()) {
+            for (Ship ship : ships) {
+                for (int k = 0; k < ship.getFields().size(); k++) {
+                    if (ship1.getFields().get(i).getX() == ship.getFields().get(k).getX() &&
+                            ship1.getFields().get(i).getY() == ship.getFields().get(k).getY()) {
                         count++;
                     }
                 }
             }
         }
 
-        if(count == 0){
-            return true;
-        }
-        return false;
+        return count != 0;
     }
 }

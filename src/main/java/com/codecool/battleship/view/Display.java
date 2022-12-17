@@ -16,17 +16,20 @@ public class Display {
 
     public void printMenu() {
         System.out.println("\n\n                        Battleship is starting...");
-        System.out.println("\n" + "                                     # #  ( )\n" +
-                "                                  ___#_#___|__\n" +
-                "                              _  |____________|  _\n" +
-                "                       _=====| | |            | | |==== _\n" +
-                "                 =====| |.---------------------------. | |====\n" +
-                "   <--------------------'   .  .  .  .  .  .  .  .   '--------------/\n" +
-                "     \\                                                             /\n" +
-                "      \\_______________________________________________WWS_________/\n" +
-                "  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
-                "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
-                "   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww \n"
+        System.out.println("""
+
+                                                     # #  ( )
+                                                  ___#_#___|__
+                                              _  |____________|  _
+                                       _=====| | |            | | |==== _
+                                 =====| |.---------------------------. | |====
+                   <--------------------'   .  .  .  .  .  .  .  .   '--------------/
+                     \\                                                             /
+                      \\_______________________________________________WWS_________/
+                  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\s
+                """
         );
     }
 
@@ -36,13 +39,15 @@ public class Display {
 
     public void printMainMenuOptions() {
         System.out.println(
-                "\t\t\t  __  __   _   ___ _  _   __  __ ___ _  _ _   _ \n" +
-                "\t\t\t |  \\/  | /_\\ |_ _| \\| | |  \\/  | __| \\| | | | |\n" +
-                "\t\t\t | |\\/| |/ _ \\ | || .` | | |\\/| | _|| .` | |_| |\n" +
-                "\t\t\t |_|  |_/_/ \\_\\___|_|\\_| |_|  |_|___|_|\\_|\\___/ \n" +
-                "                                                \n" +
-                "\t                         1 - Play \n" +
-                "\t                         2 - Exit game \n");
+                """
+                        \t\t\t  __  __   _   ___ _  _   __  __ ___ _  _ _   _\s
+                        \t\t\t |  \\/  | /_\\ |_ _| \\| | |  \\/  | __| \\| | | | |
+                        \t\t\t | |\\/| |/ _ \\ | || .` | | |\\/| | _|| .` | |_| |
+                        \t\t\t |_|  |_/_/ \\_\\___|_|\\_| |_|  |_|___|_|\\_|\\___/\s
+                                                                       \s
+                        \t                         1 - Play\s
+                        \t                         2 - Exit game\s
+                        """);
     }
 
     public void printExitMessage() {
@@ -69,15 +74,9 @@ public class Display {
             for (int column = 0; column < ocean.getSizeY(); column++) {
 
                 switch (ocean.getSquare(row, column).getCharacter()) {
-                    case 'O':
-                        boardBuilder.append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET);
-                        break;
-                    case 'H':
-                        boardBuilder.append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET);
-                        break;
-                    case 'M':
-                        boardBuilder.append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET);
-                        break;
+                    case 'O' -> boardBuilder.append(ANSI_BLUE_BACKGROUND).append(" ").append(ANSI_RESET);
+                    case 'H' -> boardBuilder.append(ANSI_RED_BACKGROUND).append(" ").append(ANSI_RESET);
+                    case 'M' -> boardBuilder.append(ANSI_YELLOW_BACKGROUND).append(" ").append(ANSI_RESET);
                 }
             }
             if (row == 0) {

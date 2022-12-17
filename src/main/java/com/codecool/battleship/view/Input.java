@@ -13,8 +13,8 @@ import java.util.Scanner;
 
 public class Input {
 
-    private Scanner scanner = new Scanner(System.in);
-    private List<Board> boards = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
+    private final List<Board> boards = new ArrayList<>();
     int choice;
     List<Integer> CoordinatesAndShipType = new ArrayList<>();
 
@@ -68,14 +68,18 @@ public class Input {
         String[] coordinates = position.split("", 2);
         int row = Integer.parseInt(coordinates[1]) - 1;
         int col = position.charAt(0) - 65;
-        System.out.println("\n                              SELECT SHIP: \n\n" +
-                "\t                       1 - CARRIER    (2)\n" +
-                "\t                       2 - CRUISER    (3)\n" +
-                "\t                       3 - BATTLESHIP (3)\n" +
-                "\t                       4 - DESTROYER  (4)\n" +
-                "\t                       5 - SUBMARINE  (5)\n" +
-                "                             * (Ship size)\n\n" +
-                "                              PLAYER INPUT: ");
+        System.out.println("""
+
+                                              SELECT SHIP:\s
+
+                \t                       1 - CARRIER    (2)
+                \t                       2 - CRUISER    (3)
+                \t                       3 - BATTLESHIP (3)
+                \t                       4 - DESTROYER  (4)
+                \t                       5 - SUBMARINE  (5)
+                                             * (Ship size)
+
+                                              PLAYER INPUT:\s""");
         int shipType = sc.nextInt();
         CoordinatesAndShipType.add(row);
         CoordinatesAndShipType.add(col);
